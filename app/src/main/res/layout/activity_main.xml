@@ -5,30 +5,37 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="15dp"
+    android:background="#A9A9A9"
     android:gravity="center"
-    tools:context=".MainActivity">
+    android:orientation="vertical">
+
+    <!-- Здесь будут наши элементы -->
+
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tvTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="TextView" />
+        android:textStyle="bold"
+        android:gravity="center"
+        android:text="Добро пожаловать в Music!" />
 
-    <TextView
-        android:id="@+id/textView2"
+    <Button
+        android:id="@+id/btnStart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="2"
-        android:text="TextView" />
+        android:layout_marginTop="30dp"
+        android:backgroundTint="#696969"
+        android:gravity="center"
+        android:text="Слушать музыку"
+        android:textColor="#FFE4E1" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="TextView" />
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:src="@drawable/wave_sound"
+        android:contentDescription="Логотип магазина"
+        android:layout_marginTop="30dp"/>
 
 </LinearLayout>
