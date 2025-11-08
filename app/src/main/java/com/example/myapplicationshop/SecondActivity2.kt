@@ -3,13 +3,36 @@ package com.example.myapplicationshop
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import Product
+import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.TextView
 
 class SecondActivity2 : AppCompatActivity() {
+    private val products = listOf(
+        Product(1, "Кольцо 1",  50.0,  "Описание 1", R.drawable.one),
+        Product(2, "Кольцо 2",  60.0,  "Описание 2", R.drawable.two),
+        Product(3, "Кольцо 3",   70.0, "Описание 3", R.drawable.three),
+        Product(4, "Кольцо 4",  80.0,  "Описание 4", R.drawable.four),
+        Product(5, "### 5", 90.0,  "Описание 5", R.drawable.five),
+    )
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        setContentView(R.layout.activity_second2)
+
+        val container = findViewById<LinearLayout>(R.id.catalogContainer)
+
+
+        products.forEach { product ->
+            val view = layoutInflater.inflate(R.layout.item_product, container, false)
+
+            view.findViewById<ImageView>(R.id.ivProductImage).setImageResource(product.ImageRes)
+            view.findViewById<TextView>(R.id.tvProductName).text = product.name
+            view.findViewById<TextView>(R.id.tvProductPrice).text = "${product.price} $"
+
+            container.addView(view)
+        }
 
     }
 }
