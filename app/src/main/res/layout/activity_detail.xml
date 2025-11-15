@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#4682B4"
+    android:padding="15dp">
+
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+        <ImageView
+            android:id="@+id/detailImage"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:src="@drawable/wave_sound"
+
+            android:contentDescription="Картинка"
+            android:layout_marginTop="30dp"/>
+
+        <TextView
+            android:id="@+id/detailName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="25dp"
+            android:textColor="#696969"
+            android:gravity="center"
+            android:text="Имя" />
+
+
+        <TextView
+            android:id="@+id/detailPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="25dp"
+            android:textColor="#696969"
+            android:gravity="center"
+            android:text="Цена" />
+
+        <TextView
+            android:id="@+id/detaildescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="25dp"
+            android:textColor="#696969"
+            android:gravity="center"
+            android:text="Описание" />
+
+        <Button
+            android:id="@+id/detailbuy"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="#696969"
+            android:gravity="center"
+            android:text="Купить"
+            android:textColor="#FFE4E1" />
+
+        <Button
+            android:id="@+id/detailback"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:backgroundTint="#696969"
+            android:gravity="center"
+            android:text="Назад"
+            android:textColor="#FFE4E1" />
+
+    </LinearLayout>
+</ScrollView>

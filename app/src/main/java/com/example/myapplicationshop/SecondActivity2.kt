@@ -4,6 +4,8 @@ import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import Product
+import android.content.Intent
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -30,6 +32,16 @@ class SecondActivity2 : AppCompatActivity() {
             view.findViewById<ImageView>(R.id.ivProductImage).setImageResource(product.ImageRes)
             view.findViewById<TextView>(R.id.tvProductName).text = product.name
             view.findViewById<TextView>(R.id.tvProductPrice).text = "${product.price} $"
+
+            view.findViewById<Button>(R.id.btnDetails).setOnClickListener {
+                val intent = Intent(this, DetailActivity::class.java).apply {
+                    putExtra("name", product.name)
+                    putExtra("price", product.price)
+                    putExtra("ImageRes", product.ImageRes)
+                    putExtra("description", product.description)
+                }
+                startActivity(intent)
+            }
 
             container.addView(view)
         }
