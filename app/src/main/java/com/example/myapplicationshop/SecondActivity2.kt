@@ -15,22 +15,27 @@ import android.widget.LinearLayout
 import android.widget.ListView
 import android.widget.TextView
 
-private val SecondActivity2.lvCatalog: Int
+
 
 class SecondActivity2 : AppCompatActivity() {
     private val products = listOf(
-        Product(1, "Кольцо 1",  50.0,  "Описание 1", R.drawable.one),
-        Product(2, "Кольцо 2",  60.0,  "Описание 2", R.drawable.two),
-        Product(3, "Кольцо 3",   70.0, "Описание 3", R.drawable.three),
-        Product(4, "Кольцо 4",  80.0,  "Описание 4", R.drawable.four),
-        Product(5, "### 5", 90.0,  "Описание 5", R.drawable.five),
+        Product(1, "Морковь",  50.0,  "Просто морковка", R.drawable.one),
+        Product(2, "Дикий огурец",  60.0,  "Огурец Дикий огурец", R.drawable.two),
+        Product(3, "Банан",   70.0, "Просто банан", R.drawable.three),
+        Product(4, "Яблоко",  80.0,  "Просто яблоко", R.drawable.four),
+        Product(5, "Арбуз", 90.0,  "Просто арбуз", R.drawable.five),
     )
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_second2)
 
-        val container = findViewById<ListView>(lvCatalog)
+        val container = findViewById<ListView>(R.id.lvCatalog)
+
+        val adapter = ProductAdapter(this, products)
+
+        container.adapter = adapter
+
 
 
 //        val container = findViewById<LinearLayout>(R.id.catalogContainer)

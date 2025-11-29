@@ -2,7 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#4682B4"
+    android:background="#696969"
     android:padding="15dp">
 
     <LinearLayout
@@ -15,7 +15,7 @@
             android:id="@+id/detailImage"
             android:layout_width="140dp"
             android:layout_height="140dp"
-            android:src="@drawable/wave_sound"
+            android:src="@drawable/name"
 
             android:contentDescription="Картинка"
             android:layout_marginTop="30dp"/>
@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:textSize="25dp"
-            android:textColor="#696969"
+            android:textColor="@color/white"
             android:gravity="center"
             android:text="Имя" />
 
@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:textSize="25dp"
-            android:textColor="#696969"
+            android:textColor="@color/white"
             android:gravity="center"
             android:text="Цена" />
 
@@ -47,7 +47,7 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:textSize="25dp"
-            android:textColor="#696969"
+            android:textColor="@color/white"
             android:gravity="center"
             android:text="Описание" />
 
@@ -59,7 +59,7 @@
             android:backgroundTint="#696969"
             android:gravity="center"
             android:text="Купить"
-            android:textColor="#FFE4E1" />
+            android:textColor="@color/white" />
 
         <Button
             android:id="@+id/detailback"
@@ -68,7 +68,7 @@
             android:backgroundTint="#696969"
             android:gravity="center"
             android:text="Назад"
-            android:textColor="#FFE4E1" />
+            android:textColor="@color/white" />
 
     </LinearLayout>
 </ScrollView>
