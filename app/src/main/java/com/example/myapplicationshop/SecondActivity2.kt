@@ -65,16 +65,29 @@ class SecondActivity2 : AppCompatActivity() {
 
         rwGrid.layoutManager = GridLayoutManager(this, 2)
         rwGrid.adapter = gridAdapter
+
+        val prefs = getSharedPreferences("settings", MODE_PRIVATE)
+        val isGridPref = prefs.getBoolean("isGrid", true)
+
+        if (isGridPref == true) {
+            showgrid()
+        } else {
+            showList()
+        }
     }
 
         private fun showList(){
             lwList.visibility = View.VISIBLE
             rwGrid.visibility = View.GONE
+            val prefs = getSharedPreferences("settings", MODE_PRIVATE)
+            prefs.edit().putBoolean("isGrid", false).apply()
         }
 
         private fun showgrid(){
             lwList.visibility = View.GONE
             rwGrid.visibility = View.VISIBLE
+            val prefs = getSharedPreferences("settings", MODE_PRIVATE)
+            prefs.edit().putBoolean("isGrid", true).apply()
         }
 
         override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -153,6 +166,7 @@ class ProductAdapter(
 
         button.setOnClickListener {
             val intent = Intent(context, DetailActivity::class.java).apply {
+                putExtra("id", product.id)
                 putExtra("name", product.name)
                 putExtra("price", product.price)
                 putExtra("ImageRes", product.ImageRes)
