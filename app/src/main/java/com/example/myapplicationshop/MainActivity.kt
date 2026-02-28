@@ -8,6 +8,7 @@ import androidx.core.view.WindowInsetsCompat
 import android.widget.Button
 import android.content.Intent
 import android.widget.Toast
+import com.example.myapplicationshop.model.CartStorage
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,6 +16,8 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
         val btn_start = findViewById<Button>(R.id.btnStart)
+
+        CartStorage.init(this)
 
         btn_start.setOnClickListener {
             val intent = Intent(this, SecondActivity2::class.java)

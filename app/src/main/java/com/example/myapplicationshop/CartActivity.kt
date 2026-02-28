@@ -32,11 +32,11 @@ class CartActivity  : AppCompatActivity() {
         for (elem in items) {
             total += elem.price
         }
-        tvTotal.text = "Итого: ${total} ₽"
+        tvTotal.text = "Итого: ${total} $"
 
         // 4) Очистка корзины
         btnClear.setOnClickListener {
-            CartStorage.clear()
+            CartStorage.clear(this)
             rv.adapter = CartAdapter(emptyList())
             tvTotal.text = "Итого: 0.0 ₽"
         }

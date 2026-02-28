@@ -50,7 +50,7 @@ class DetailActivity: AppCompatActivity() {
                 ImageRes = productImageRes)
 
             // 2) Добавление нового товара в корзину(своя функция)
-            CartStorage.add_item(one_new_product)
+            CartStorage.add_item(this,one_new_product)
 
             // 3) Сообщение об успешном добавлении
             Toast.makeText(this, "Товар добавлен в корзину", Toast.LENGTH_SHORT).show()
