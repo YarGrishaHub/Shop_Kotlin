@@ -16,25 +16,26 @@ class CartActivity  : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cart)
 
+        // 1) Находим эл-ы на экране
         val rv = findViewById<RecyclerView>(R.id.rvCartList)
         val tvTotal = findViewById<TextView>(R.id.tvCartTotalSum)
         val btnClear = findViewById<Button>(R.id.btnClearCart)
 
-        // 1) Берём товары из CartStorage
+        // 2) Берём товары из CartStorage
         val items = CartStorage.all()
 
-        // 2) Настраиваем RecyclerView
+        // 3) Настраиваем RecyclerView
         rv.layoutManager = LinearLayoutManager(this)
         rv.adapter = CartAdapter(items)
 
-        // 3) Считаем сумму
+        // 4) Считаем сумму
         var total = 0.0
         for (elem in items) {
             total += elem.price
         }
         tvTotal.text = "Итого: ${total} $"
 
-        // 4) Очистка корзины
+        // 5) Очистка корзины
         btnClear.setOnClickListener {
             CartStorage.clear(this)
             rv.adapter = CartAdapter(emptyList())

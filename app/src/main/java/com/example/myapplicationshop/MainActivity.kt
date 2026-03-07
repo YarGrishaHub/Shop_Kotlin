@@ -9,6 +9,7 @@ import android.widget.Button
 import android.content.Intent
 import android.widget.Toast
 import com.example.myapplicationshop.model.CartStorage
+import com.example.myapplicationshop.model.HistoryStorage
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,6 +19,7 @@ class MainActivity : AppCompatActivity() {
         val btn_start = findViewById<Button>(R.id.btnStart)
 
         CartStorage.init(this)
+        HistoryStorage.init(this)
 
         btn_start.setOnClickListener {
             val intent = Intent(this, SecondActivity2::class.java)
