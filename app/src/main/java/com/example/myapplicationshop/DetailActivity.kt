@@ -13,7 +13,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplicationshop.model.CartStorage
 
 class DetailActivity: AppCompatActivity() {
-    @SuppressLint("WrongViewCast")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
