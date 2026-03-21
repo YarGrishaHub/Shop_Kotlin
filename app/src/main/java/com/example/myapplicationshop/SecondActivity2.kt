@@ -31,8 +31,8 @@ class SecondActivity2 : AppCompatActivity() {
 
 
     private val products = listOf(
-        Product(1, "Морковь",  50.0,  "Просто морковка", R.drawable.one),
-        Product(2, "Дикий огурец",  60.0,  "Огурец Дикий огурец", R.drawable.two),
+        Product(1, "Морковь",  50.0,  "Просто морковка", R.drawable.morkov),
+        Product(2, "Огурец",  60.0,  "Огурец Дикий огурец", R.drawable.ogyrez),
         Product(3, "Банан",   70.0, "Просто банан", R.drawable.three),
         Product(4, "Яблоко",  80.0,  "Просто яблоко", R.drawable.four),
         Product(5, "Арбуз", 90.0,  "Просто арбуз", R.drawable.five),

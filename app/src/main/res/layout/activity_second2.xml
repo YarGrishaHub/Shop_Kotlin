@@ -4,6 +4,7 @@
     android:id="@+id/second"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/lavender"
     android:orientation="vertical"
     android:padding="16dp">
 
@@ -11,9 +12,8 @@
         android:id="@+id/topBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#501D1D"
         app:title="Каталог"
-        app:titleTextColor="#FFFFFFFF"
+        app:titleTextColor="@color/black"
         android:elevation="4dp"/>
 
 

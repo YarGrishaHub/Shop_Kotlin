@@ -27,7 +27,7 @@
         android:id="@+id/tvCartTotalSum"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="ИТОГО: 0 Р"
+        android:text="ИТОГО: 0 ₽"
         android:textSize="30sp"
         android:paddingBottom="12dp"
         android:paddingTop="12dp"

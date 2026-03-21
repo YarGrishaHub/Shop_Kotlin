@@ -15,7 +15,7 @@
             android:id="@+id/detailImage"
             android:layout_width="140dp"
             android:layout_height="140dp"
-            android:src="@drawable/name"
+            android:src="@drawable/main"
 
             android:contentDescription="Картинка"
             android:layout_marginTop="30dp"/>
