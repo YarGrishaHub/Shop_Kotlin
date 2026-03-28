@@ -9,6 +9,7 @@ import android.widget.Button
 import android.content.Intent
 import android.widget.Toast
 import com.example.myapplicationshop.model.CartStorage
+import com.example.myapplicationshop.model.FavoriteStorage
 import com.example.myapplicationshop.model.HistoryStorage
 
 class MainActivity : AppCompatActivity() {
@@ -20,6 +21,7 @@ class MainActivity : AppCompatActivity() {
 
         CartStorage.init(this)
         HistoryStorage.init(this)
+        FavoriteStorage.init(this)
 
         btn_start.setOnClickListener {
             val intent = Intent(this, SecondActivity2::class.java)

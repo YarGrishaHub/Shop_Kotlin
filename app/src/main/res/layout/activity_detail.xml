@@ -2,7 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#696969"
+    android:background="@color/grey"
     android:padding="15dp">
 
     <LinearLayout
@@ -16,7 +16,6 @@
             android:layout_width="140dp"
             android:layout_height="140dp"
             android:src="@drawable/main"
-
             android:contentDescription="Картинка"
             android:layout_marginTop="30dp"/>
 
