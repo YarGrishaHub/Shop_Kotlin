@@ -7,9 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.RatingBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplicationshop.model.Order
+import com.example.myapplicationshop.model.RatingStorage
 
 class HistoryAdapter (
     private val items: List<Order>
@@ -20,6 +22,8 @@ class HistoryAdapter (
             val name: TextView = view.findViewById<TextView>(R.id.tvHistoryName)
             val price: TextView = view.findViewById<TextView>(R.id.tvHistoryPrice)
             val date: TextView = view.findViewById<Button>(R.id.tvHistoryDate)
+
+            val ratingBar = view.findViewById<RatingBar>(R.id.rbHistory)
         }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
         val view = LayoutInflater.from(parent.context)
@@ -36,6 +40,20 @@ class HistoryAdapter (
         holder.name.text = order.product.name
         holder.price.text = "${order.quantity} x ${order.product.price} $ = ${order.totalPrice} $"
         holder.date.text = order.dateTime
+
+        // работа с рейтингом
+        // 1. Получаем кол-во звёздочек из настроек
+        val savedRating = RatingStorage.get(holder.itemView.context, order.product.id)
+
+        // 2. Отображаем в рейтинг бар эти звёздочки
+        holder.ratingBar.rating = savedRating
+
+        // 3. Обработка нажатия на звёздочки
+        holder.ratingBar.setOnRatingBarChangeListener{_, rating, _ ->
+            RatingStorage.save(holder.itemView.context, order.product.id, rating)
+
+
+        }
 
     }
 

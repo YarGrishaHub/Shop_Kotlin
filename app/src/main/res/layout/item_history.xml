@@ -41,6 +41,17 @@
             android:text="день.месяц.год часы:минуты"
             android:textSize="16sp" />
 
+        <RatingBar
+            android:id="@+id/rbHistory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:stepSize="0.5"
+            android:progressTint="@color/orange"
+            android:progressBackgroundTint="@color/grey"
+            android:rating="0"/>
+
+
     </LinearLayout>
 
 

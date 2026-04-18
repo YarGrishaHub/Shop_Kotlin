@@ -37,10 +37,16 @@ class SecondActivity2 : AppCompatActivity() {
         Product(4, "Яблоко",  80.0,  "Просто яблоко", R.drawable.four),
         Product(5, "Арбуз", 90.0,  "Просто арбуз", R.drawable.five),
     )
+
+    private val originalList = mutableListOf<Product>()
+    private val currentList = mutableListOf<Product>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_second2)
+
+        originalList.addAll(products)
+        currentList.addAll(products)
 
         val toolbar = findViewById<Toolbar>(R.id.topBar)
         setSupportActionBar(toolbar)
@@ -51,11 +57,11 @@ class SecondActivity2 : AppCompatActivity() {
 
 //      2. Находим адаптер для LW
 
-        listAdapter = ProductAdapter(this, products)
+        listAdapter = ProductAdapter(this, currentList)
 
 //      3. Находим адаптер для RW
 
-        gridAdapter = ProductGridAdapter(this, products)
+        gridAdapter = ProductGridAdapter(this, currentList)
 
 //      4. Соединяем адаптер и список RW
 
@@ -96,9 +102,26 @@ class SecondActivity2 : AppCompatActivity() {
         }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.action_favorite) {
-            startActivity(Intent(this, FavoriteActivity::class.java))
-            return true
+        when (item.itemId) {
+            R.id.sort_default -> {
+                currentList.clear()
+                currentList.addAll(originalList)
+                listAdapter.notifyDataSetChanged()
+                gridAdapter.notifyDataSetChanged()
+                return true
+            }
+            R.id.sort_asc -> {
+                currentList.sortBy{it.price}
+                listAdapter.notifyDataSetChanged()
+                gridAdapter.notifyDataSetChanged()
+                return true
+            }
+            R.id.sort_desc -> {
+                currentList.sortByDescending{it.price}
+                listAdapter.notifyDataSetChanged()
+                gridAdapter.notifyDataSetChanged()
+                return true
+            }
         }
 
         if (item.itemId == R.id.action_cart) {
