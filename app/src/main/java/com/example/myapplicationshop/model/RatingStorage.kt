@@ -11,7 +11,7 @@ object RatingStorage {
     }
 
     fun get(context: Context, productid: Int): Float {
-        val prefs = context.getSharedPreferences("rating.prefs", MODE_PRIVATE)
+        val prefs = context.getSharedPreferences("rating_prefs", MODE_PRIVATE)
         return prefs.getFloat(productid.toString(), 0f)
     }
 }

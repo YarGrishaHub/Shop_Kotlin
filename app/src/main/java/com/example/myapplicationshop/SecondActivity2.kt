@@ -10,8 +10,10 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -139,6 +141,11 @@ class SecondActivity2 : AppCompatActivity() {
             return true
         }
 
+        if (item.itemId == R.id.action_favorite){
+            startActivity(Intent(this, FavoriteActivity::class.java))
+            return true
+        }
+
         return super.onOptionsItemSelected(item)
     }
 
@@ -196,6 +203,19 @@ class ProductAdapter(
         image.setImageResource(product.ImageRes)
             name.text = product.name
             price.text = "${product.price} $"
+
+        button.setOnTouchListener { v, event ->
+            if (event.action == MotionEvent.ACTION_DOWN){
+                v.startAnimation(AnimationUtils.loadAnimation(v.context, R.anim.scale_down))
+            }
+            if (event.action == MotionEvent.ACTION_UP){
+                v.startAnimation(AnimationUtils.loadAnimation(v.context, R.anim.scale_up))
+            }
+            if (event.action == MotionEvent.ACTION_CANCEL){
+                v.startAnimation(AnimationUtils.loadAnimation(v.context, R.anim.scale_up))
+            }
+            false
+        }
 
         button.setOnClickListener {
             val intent = Intent(context, DetailActivity::class.java).apply {

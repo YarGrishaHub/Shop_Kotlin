@@ -1,8 +1,10 @@
 import Product
 import android.content.Intent
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -46,6 +48,19 @@ class ProductGridAdapter (
                 putExtra("description", product.description)
             }
             context.startActivity(intent)
+        }
+
+        holder.button.setOnTouchListener { v, event ->
+            if (event.action == MotionEvent.ACTION_DOWN){
+                v.startAnimation(AnimationUtils.loadAnimation(v.context, R.anim.scale_down))
+            }
+            if (event.action == MotionEvent.ACTION_UP){
+                v.startAnimation(AnimationUtils.loadAnimation(v.context, R.anim.scale_up))
+            }
+            if (event.action == MotionEvent.ACTION_CANCEL){
+                v.startAnimation(AnimationUtils.loadAnimation(v.context, R.anim.scale_up))
+            }
+            false
         }
 
     }
